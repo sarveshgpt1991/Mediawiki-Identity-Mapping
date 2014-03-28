@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>{{user.username}}-Profile</title>
+</head>
+<body>
+
+<h3>Profile</h3>
+<form method="post" action="/{{user.username}}">{% csrf_token %}
+	<table>
+		<tr>
+			<td>Username</td>
+			<td> <input type="text" name="username" value="{{user.username}}" /> </td>
+		</tr>
+		<tr>
+			<td> First Name </td>
+			<td> <input type="text" name="firstname" value="{{user.first_name|default:'Not set'}}" /> </td>
+		</tr>
+		<tr>
+			<td> Last Name </td>
+			<td> <input type="text" name="lastname" value="{{user.last_name|default:'Not set'}}" /> </td>
+		</tr>
+		<tr>
+			<td> E-mail </td>
+			<td> <input type="text" name="email" value="{{user.email|default:'Not set'}}" /> </td>
+		</tr>
+	</table>
+	<input type='submit' />
+</form>
+
+
+</body>
+</html>

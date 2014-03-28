@@ -14,7 +14,7 @@ def signin(request):
 	if user is not None:
 		if user.is_active:
 			login(request, user)
-			return HttpResponseRedirect('/%s/' % request.user.username) 
+			return HttpResponseRedirect('/%s' % request.user.username) 
 		else:
 			return HttpResponse("Your account is disabled!")
 	else:
