@@ -1,2 +1,2 @@
-mediawiki-identity-mapping
+Mediawiki-Identity-Mapping
 ==========================
