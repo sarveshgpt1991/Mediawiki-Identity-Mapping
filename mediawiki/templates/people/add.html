@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Add - {{identifier}}</title>
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/people/home.css" />
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/bootstrap.min.css" />
+</head>
+<body>
+	<h3 align="center">Identifier {{identifier}}</h3>
+	<div class="identityBox">
+		{% for u in user.identifiers %}
+		<span>
+			<span class="identity">{% firstof u.name u.country u.email %}
+				<span class="cross" title="remove this identity" redirect="/{{user.username}}/remove/{{identifier}}/{{u.id}}"></span>
+			</span>
+		</span>
+		{% endfor %}
+	</div>
+		<form action="/{{user.username}}/add/{{identifier}}" method="post">{% csrf_token %}
+			<button class="btn btn-primary" type="submit">Confirm</button>
+			<table class='table table-hover table_identities'>
+				<tr>
+					<th>Check</th>
+					<th>{{identifier}}</th>
+				</tr>
+				{% for i in user.list %}
+				<tr>
+					<td> <input type="checkbox" value="{{i.id}}" name="id" /> </td>
+					<td>{% firstof i.name i.country %}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</form>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/people.js"></script>
+</body>
+</html>

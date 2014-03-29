@@ -1,6 +1,4 @@
 .identityBox {
-	width : 500px;
-	border: 1px solid #999;
 	height : 25px;
 }
 
@@ -28,4 +26,25 @@
 	background-size: 100%;
 	vertical-align: top;
 	cursor: pointer;
+}
+
+.table_identities {
+	max-width : 30%;
+	border: 1px solid #999;
+	margin-left: 30px;
+	margin-top: 25px;
+}
+
+.tick {
+	width :20%;
+	cursor: pointer;
+}
+
+.active {
+	background-image: url("/media/img/tick.png");
+	background-position: 20px 9px;
+	background-repeat: no-repeat;
+	width: 13px;
+	height: 13px;
+	display: inline-block;
 }
