@@ -1,0 +1,31 @@
+.identityBox {
+	width : 500px;
+	border: 1px solid #999;
+	height : 25px;
+}
+
+.identity {
+	margin-left: 3px;
+	margin-right: 3px;
+	color: #3e6d8e;
+	background-color: #e0eaf1;
+	border-bottom: 1px solid #b3cee1;
+	border-right: 1px solid #b3cee1;
+	padding: 3px 4px 3px 4px;
+	margin: 2px 2px 2px 0;
+	text-decoration: none;
+	font-size: 90%;
+	line-height: 1.0;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.cross {
+	background-image: url("/media/img/cross.png");
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	background-size: 100%;
+	vertical-align: top;
+	cursor: pointer;
+}

@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+from mediawiki.settings import MEDIA_ROOT
 from django.contrib import admin
 admin.autodiscover()
 
@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^(?P<username>\w+)', include('people.urls')),
     #url(r'signup/set_password/$', 'login.views.set_password'),
 
-    # url(r'^blog/', include('blog.urls')),
+    #media
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
     url(r'^admin/', include(admin.site.urls)),
 )

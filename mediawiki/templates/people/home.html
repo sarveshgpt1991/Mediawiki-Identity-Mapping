@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>{{user.username}}-Profile</title>
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/people/home.css">
 </head>
 <body>
 
@@ -16,12 +17,36 @@
 			<td> <input type="text" name="firstname" value="{{user.first_name|default:'Not set'}}" /> </td>
 		</tr>
 		<tr>
+			<td> Name </td>
+			<td> <input type="text" name="name" value="{{user.name|default:'Not set'}}" /> </td>
+			<td>
+				<div class="identityBox">
+					<span>
+						<span class="identity">Python
+							<span class="cross" title="remove this identity"></span>
+						</span>
+					</span>
+					<input type="text" />
+				</div>
+			</td>
+		</tr>
+		<tr>
 			<td> Last Name </td>
 			<td> <input type="text" name="lastname" value="{{user.last_name|default:'Not set'}}" /> </td>
 		</tr>
 		<tr>
 			<td> E-mail </td>
 			<td> <input type="text" name="email" value="{{user.email|default:'Not set'}}" /> </td>
+			<td>
+				<div class="identityBox">
+					<span>
+						<span class="identity">Python
+							<span class="cross" title="remove this identity"></span>
+						</span>
+					</span>
+					<input type="text" />
+				</div>
+			</td>
 		</tr>
 	</table>
 	<input type='submit' />
