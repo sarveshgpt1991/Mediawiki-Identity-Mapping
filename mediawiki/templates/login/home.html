@@ -1,19 +1,25 @@
 <html>
 <head>
 	<title>HOME</title>
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/login/home.css" />
 </head>
 <body>
+<div class="signin">
 	SignIn
 	<form method='post' action='/signin'>{% csrf_token %}
-		<input type='text' name='username' />
-		<input type='password' name='password' />
-		<input type='submit' />
+		<div><input class="form-control" placeholder="Username" type='text' name='username' /> </div>
+		<div><input type='password' class="form-control imput-lg" placeholder="password" name='password' /> </div>
+		<div><button class="btn btn-primary" type='submit'>Login</button> </div>
 	</form>
+</div>
+<div class="signup">
 	SignUp
 	<form method="post" action='signup'>{% csrf_token %}
-		<input type='text' name='username' />
-		<input type='password' name='password' />
-		<input type='submit' />
+		<div><input type='text' placeholder="Username" name='username' /></div>
+		<div><input type='password' placeholder="Password" name='password' /></div>
+		<div><button class="btn btn-primary" type='submit' >Register</button></div>
 	</form>
+</div>
 </body>
 </html>

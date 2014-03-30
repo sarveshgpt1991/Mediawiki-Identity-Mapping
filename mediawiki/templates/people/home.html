@@ -1,77 +1,81 @@
 <html>
 <head>
 	<title>{{user.username}}-Profile</title>
-	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/people/home.css">
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/people/home.css" />
 </head>
 <body>
-
-<h3>Profile</h3>
-<form method="post" action="/{{user.username}}">{% csrf_token %}
-	<table>
-		<tr>
-			<td>Username</td>
-			<td> <input type="text" name="username" value="{{user.username}}" /> </td>
-		</tr>
-		<tr>
-			<td> First Name </td>
-			<td> <input type="text" name="firstname" value="{{user.first_name|default:'Not set'}}" /> </td>
-		</tr>
-		<tr>
-			<td> Name </td>
-			<td> <input type="text" name="name" value="{{user.name|default:'Not set'}}" /> </td>
-			<td>
-				<div class="identityBox">
-					{% for u in user.identifiers_name %}
-					<span>
-						<span class="identity">{{u.name}}
-							<span class="cross" title="remove this identity"></span>
+<nav>
+	<a href="/signout"><div class='logout'>Logout</div></a>
+</nav>
+<div class="bottom">
+	<h3 align="center">Profile</h3>
+	<form class="profile" method="post" action="/{{user.username}}">{% csrf_token %}
+		<table>
+			<tr>
+				<td class="profile_label">Username</td>
+				<td class="profile_input_td"> <input class="profile_input" type="text" name="username" value="{{user.username}}" /> </td>
+			</tr>
+			<tr>
+				<td class="profile_label"> First Name </td>
+				<td class="profile_input_td"> <input class="profile_input" type="text" name="firstname" value="{{user.first_name|default:'Not set'}}" /> </td>
+			</tr>
+			<tr>
+				<td class="profile_label"> Name </td>
+				<td class="profile_input_td"> </td>
+				<td>
+					<div class="identityBox">
+						{% for u in user.identifiers_name %}
+						<span>
+							<span class="identity">{{u.name}}
+								<span class="cross" title="remove this identity" redirect="/{{user.username}}/remove/name/{{u.id}}"></span>
+							</span>
 						</span>
-					</span>
-					{% endfor %}
-					<a href="/{{user.username}}/add/name">Add Name</a>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td> Last Name </td>
-			<td> <input type="text" name="lastname" value="{{user.last_name|default:'Not set'}}" /> </td>
-		</tr>
-		<tr>
-			<td> E-mail </td>
-			<td> <input type="text" name="email" value="{{user.email|default:'Not set'}}" /> </td>
-			<td>
-				<div class="identityBox">
-					{% for e in user_identifier.email%}
-					<span>
-						<span class="identity">{{e}}
-							<span class="cross" title="remove this identity"></span>
+						{% endfor %}
+						<a href="/{{user.username}}/add/name">Add Name</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="profile_label"> Last Name </td>
+				<td class="profile_input_td"> <input class="profile_input" type="text" name="lastname" value="{{user.last_name|default:'Not set'}}" /> </td>
+			</tr>
+			<tr>
+				<td class="profile_label"> E-mail </td>
+				<td class="profile_input_td"> <input class="profile_input" type="text" name="email" value="{{user.email|default:'Not set'}}" /> </td>
+				<td>
+					<div class="identityBox">
+						{% for e in user_identifier.email%}
+						<span>
+							<span class="identity">{{e}}
+								<span class="cross" title="remove this identity" redirect="/{{user.username}}/remove/email/{{e.id}}"></span>
+							</span>
 						</span>
-					</span>
-					{% endfor %}
-					<a href="{{user.username}}/add/email">Add Email</a>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td> Country </td>
-			<td> </td>
-			<td>
-				<div class="identityBox">
-					{% for c in user.identifiers_country%}
-					<span>
-						<span class="identity">{{c.country}}
-							<span class="cross" title="remove this identity"></span>
+						{% endfor %}
+						<a href="{{user.username}}/add/email">Add Email</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="profile_label"> Country </td>
+				<td class="profile_input_td"> </td>
+				<td>
+					<div class="identityBox">
+						{% for c in user.identifiers_country%}
+						<span>
+							<span class="identity">{{c.country}}
+								<span class="cross" title="remove this identity" redirect="/{{user.username}}/remove/country/{{c.id}}"></span>
+							</span>
 						</span>
-					</span>
-					{% endfor %}
-					<a href="{{user.username}}/add/country" >Add Country</a>
-				</div>
-			</td>
-		</tr>
-	</table>
-	<input type='submit' />
-</form>
-
+						{% endfor %}
+						<a href="{{user.username}}/add/country" >Add Country</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<button class="btn btn-primary" type='submit' align="center">Submit</button>
+	</form>
+</div>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/people.js"></script>
 </body>

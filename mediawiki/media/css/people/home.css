@@ -1,5 +1,56 @@
+nav {
+	background-color: rgba(255, 140, 0, 1);
+	height: 40px;
+	font-family: "Lucida Console", Monaco, monospace;
+	text-align: center;
+}
+
+.logout {
+	font-size: 1.5em;
+	background-color: rgb(255, 160, 0);
+	margin-left: 90%;
+	height: 100%;
+}
+
+.home {
+	font-size: 1.5em;
+	background-color: rgb(255, 160, 0);
+	margin-left: 50%;
+	height: 100%;	
+}
+
+.bottom {
+	background-color: rgb(255, 140, 0);
+	font-family: "Lucida Console", Monaco, monospace;
+	margin-left: 3%;
+	width: 94%;
+	
+}
+
+.btn {
+	display: block;
+	margin: 15px auto 0px auto;
+}
+
+.profile {
+	margin-left: 1%;
+}
+
+.profile_label {
+	width: 18%; 
+}
+
+.profile_input_td {
+	width: 30%;
+}
+
+.profile_input {
+	height: 40px;
+}
+
 .identityBox {
 	height : 25px;
+	margin-left: 10px;
 }
 
 .identity {
@@ -31,8 +82,7 @@
 .table_identities {
 	max-width : 30%;
 	border: 1px solid #999;
-	margin-left: 30px;
-	margin-top: 25px;
+	margin: 30px auto 0px auto;
 }
 
 .tick {
