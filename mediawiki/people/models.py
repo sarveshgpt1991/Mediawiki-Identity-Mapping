@@ -7,6 +7,13 @@ class Name(models.Model):
 class Country(models.Model):
 	country = models.CharField(max_length = 30)
 
+class Email(models.Model):
+	email = models.EmailField()
+
+class User_email(models.Model):
+	user = models.ForeignKey(User)
+	email = models.ForeignKey(Email)
+
 class User_name(models.Model):
 	user = models.ForeignKey(User)
 	name = models.ForeignKey(Name)

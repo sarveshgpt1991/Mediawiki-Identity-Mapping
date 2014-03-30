@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^signup$', 'login.views.signup'),
     url(r'^signin$', 'login.views.signin'),
     url(r'^signout$', 'login.views.signout'),
+    url(r'^db/(?P<tablename>\w+)/(?P<filename>\w+)$', 'mediawiki.tests.Db'),
     
     #user-specific
     url(r'^(?P<username>\w+)', include('people.urls')),

@@ -45,9 +45,9 @@
 				<td class="profile_input_td"> <input class="profile_input" type="text" name="email" value="{{user.email|default:'Not set'}}" /> </td>
 				<td>
 					<div class="identityBox">
-						{% for e in user_identifier.email%}
+						{% for e in user.identifiers_email%}
 						<span>
-							<span class="identity">{{e}}
+							<span class="identity">{{e.email}}
 								<span class="cross" title="remove this identity" redirect="/{{user.username}}/remove/email/{{e.id}}"></span>
 							</span>
 						</span>
